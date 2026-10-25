@@ -140,7 +140,7 @@ pages here are independent static files and won't be affected either way.
    | `GITHUB_REPO` | `datasphere-config` |
    | `GITHUB_PATH` | `config.json` |
    | `GITHUB_BRANCH` | `main` |
-   | `ADMIN_PASSWORD` | `preetham` |
+   | `ADMIN_PASSWORD` | `ask the owner of repo` |
 5. **Redeploy** (env var changes need a redeploy to take effect).
 
 Once redeployed: everyone who opens the live URL loads the shared
