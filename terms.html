@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%230e7fa8'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='10' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-20 32 32)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0e7fa8">
+<title>Terms &amp; Conditions — Data Sphere Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --font-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+
+/* ---- Theme tokens (soft, light) ---- */
+  html[data-theme="sky"]{
+    --bg:#eef5fb; --bg2:#dcecf7; --ink:#12233a; --ink-soft:#4c6178;
+    --accent:#0e7fa8; --accent2:#33b8c9; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="lavender"]{
+    --bg:#f3f0fb; --bg2:#e6dff6; --ink:#2b2140; --ink-soft:#6a5d84;
+    --accent:#7c5cc7; --accent2:#c38fe0; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="mint"]{
+    --bg:#eefaf3; --bg2:#dcf3e6; --ink:#12362a; --ink-soft:#4e7365;
+    --accent:#189a72; --accent2:#5fd0a4; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="peach"]{
+    --bg:#fdf3ec; --bg2:#f9e3d3; --ink:#3a2416; --ink-soft:#7c5f4c;
+    --accent:#d9772f; --accent2:#f0b26b; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+
+  body{
+    margin:0; min-height:100%;
+    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--ink); font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); letter-spacing:-0.01em;}
+  a{color:var(--accent);}
+  ::selection{background:var(--accent2); color:#fff;}
+
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    background:rgba(var(--glass), 0.55);
+    border-bottom:1px solid var(--card-border);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    max-width:860px; margin:0 auto; padding:14px 20px;
+  }
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; text-decoration:none; color:var(--ink-soft);}
+  .back-link:hover{color:var(--accent);}
+  .theme-dots{display:flex; gap:6px; padding:5px; border-radius:999px; background:rgba(var(--glass),var(--glass-a)); border:1px solid var(--card-border);}
+  .theme-dots button{width:16px; height:16px; border-radius:50%; border:2px solid #fff; cursor:pointer; padding:0; box-shadow:0 0 0 1px rgba(0,0,0,0.08);}
+  .theme-dots button.on{outline:2px solid var(--ink); outline-offset:1px;}
+  .td-sky{background:linear-gradient(135deg,#0e7fa8,#33b8c9);}
+  .td-lavender{background:linear-gradient(135deg,#7c5cc7,#c38fe0);}
+  .td-mint{background:linear-gradient(135deg,#189a72,#5fd0a4);}
+  .td-peach{background:linear-gradient(135deg,#d9772f,#f0b26b);}
+
+  main{max-width:780px; margin:0 auto; padding:52px 22px 70px;}
+  .page-kicker{color:var(--accent); font-weight:700; font-size:13.5px; margin:0 0 8px;}
+  .page-title{font-size:clamp(28px,5vw,42px); margin:0 0 8px;}
+  .page-updated{color:var(--ink-soft); font-size:13.5px; margin:0 0 30px;}
+  .legal-card{
+    background:rgba(var(--glass), var(--glass-a)); border:1px solid var(--card-border);
+    border-radius:22px; padding:clamp(22px,4vw,38px);
+    backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 10px 40px rgba(20,40,60,0.08);
+  }
+  .legal-card h2{font-size:18.5px; margin:28px 0 10px;}
+  .legal-card h2:first-child{margin-top:0;}
+  .legal-card p, .legal-card li{font-size:15px; line-height:1.75; color:var(--ink-soft);}
+  .legal-card ul{margin:10px 0; padding-left:20px;}
+  .legal-card li{margin-bottom:6px;}
+
+  footer{max-width:780px; margin:0 auto; padding:30px 22px 60px; text-align:center; color:var(--ink-soft); font-size:12.5px;}
+  footer a{color:var(--ink-soft); font-weight:600; text-decoration:none;}
+  footer a:hover{color:var(--accent); text-decoration:underline;}
+  footer .sep{margin:0 8px; opacity:.5;}
+
+  @media (max-width:600px){
+    main{padding:40px 16px 56px;}
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a class="back-link" href="/">&larr; Data Sphere Club</a>
+    <div class="theme-dots" role="group" aria-label="Theme">
+      <button class="td-sky on" data-theme="sky" aria-label="Sky theme"></button>
+      <button class="td-lavender" data-theme="lavender" aria-label="Lavender theme"></button>
+      <button class="td-mint" data-theme="mint" aria-label="Mint theme"></button>
+      <button class="td-peach" data-theme="peach" aria-label="Peach theme"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="page-kicker">Legal</p>
+  <h1 class="page-title">Terms &amp; Conditions</h1>
+  <p class="page-updated">Last updated: October 2026 &middot; Data Sphere Club, AI &amp; DS Department, Don Bosco Institute of Technology, Bengaluru</p>
+
+  <div class="legal-card">
+
+    <h2>1. Acceptance of These Terms</h2>
+    <p>By using this website, registering for Data Sphere Club, or attending our events, you agree to these terms and to our Privacy Policy.</p>
+
+    <h2>2. About the Club</h2>
+    <p>Data Sphere Club is a non-commercial, student-run club of the AI &amp; DS Department at Don Bosco Institute of Technology, Bengaluru, organized for educational and community purposes.</p>
+
+    <h2>3. Membership &amp; Registration</h2>
+    <p>Registration happens through the Google Form linked on this site. Please provide accurate information. The Club reserves the right to manage membership and event attendance at its discretion.</p>
+
+    <h2>4. Code of Conduct</h2>
+    <p>Members and attendees are expected to behave respectfully at all Club activities. Harassment, discrimination, or disruptive behavior may result in removal from an event or the Club.</p>
+
+    <h2>5. Events &amp; Activities</h2>
+    <p>Event schedules, speakers, and content are subject to change. The Club is not responsible for third-party venues, tools, or services used during events.</p>
+
+    <h2>6. Photography &amp; Media Consent</h2>
+    <p>By attending a Club event, you consent to being photographed or filmed for use in the Gallery on this site and in related department material, as described in our Privacy Policy. Contact us if you'd like to opt out or request removal of specific media.</p>
+
+    <h2>7. Intellectual Property</h2>
+    <p>The content, branding, and design of this site belong to Data Sphere Club and Don Bosco Institute of Technology. Please don't reproduce them without permission. Likewise, please respect any third-party materials or resources shared during Club sessions.</p>
+
+    <h2>8. External Links &amp; Services</h2>
+    <p>This site links to external services such as Google Forms and social media platforms. Those services are governed by their own terms, and the Club isn't responsible for their content or practices.</p>
+
+    <h2>9. Limitation of Liability</h2>
+    <p>This site and its content are provided "as is." To the extent permitted by law, Data Sphere Club is not liable for any damages arising from your use of this site or participation in Club events.</p>
+
+    <h2>10. Changes to These Terms</h2>
+    <p>We may update these terms occasionally. Continued use of this site or participation in Club activities after a change means you accept the updated terms.</p>
+
+    <h2>11. Governing Law</h2>
+    <p>These terms are governed by the laws of Karnataka, India.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions about these terms can be sent through the feedback link on the home page, or directly to a Data Sphere Club coordinator.</p>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Data Sphere Club, Don Bosco Institute of Technology, Bengaluru. All rights reserved.</p>
+  <p><a href="/">Home</a><span class="sep">&middot;</span><a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var saved = localStorage.getItem('ds-theme');
+  if(saved){ root.setAttribute('data-theme', saved); }
+  document.querySelectorAll('.theme-dots button').forEach(function(b){
+    if(b.dataset.theme === root.getAttribute('data-theme')) b.classList.add('on');
+    b.addEventListener('click', function(){
+      root.setAttribute('data-theme', b.dataset.theme);
+      localStorage.setItem('ds-theme', b.dataset.theme);
+      document.querySelectorAll('.theme-dots button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    });
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

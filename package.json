@@ -1,0 +1,9 @@
+{
+  "name": "data-sphere-club-site",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build:gallery": "node scripts/build-gallery.js",
+    "vercel-build": "node scripts/build-gallery.js && node scripts/build-meta.js"
+  }
+}

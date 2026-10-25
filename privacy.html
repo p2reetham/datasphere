@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%230e7fa8'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='10' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-20 32 32)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0e7fa8">
+<title>Privacy Policy — Data Sphere Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --font-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+
+/* ---- Theme tokens (soft, light) ---- */
+  html[data-theme="sky"]{
+    --bg:#eef5fb; --bg2:#dcecf7; --ink:#12233a; --ink-soft:#4c6178;
+    --accent:#0e7fa8; --accent2:#33b8c9; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="lavender"]{
+    --bg:#f3f0fb; --bg2:#e6dff6; --ink:#2b2140; --ink-soft:#6a5d84;
+    --accent:#7c5cc7; --accent2:#c38fe0; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="mint"]{
+    --bg:#eefaf3; --bg2:#dcf3e6; --ink:#12362a; --ink-soft:#4e7365;
+    --accent:#189a72; --accent2:#5fd0a4; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="peach"]{
+    --bg:#fdf3ec; --bg2:#f9e3d3; --ink:#3a2416; --ink-soft:#7c5f4c;
+    --accent:#d9772f; --accent2:#f0b26b; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+
+  body{
+    margin:0; min-height:100%;
+    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--ink); font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); letter-spacing:-0.01em;}
+  a{color:var(--accent);}
+  ::selection{background:var(--accent2); color:#fff;}
+
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    background:rgba(var(--glass), 0.55);
+    border-bottom:1px solid var(--card-border);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    max-width:860px; margin:0 auto; padding:14px 20px;
+  }
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; text-decoration:none; color:var(--ink-soft);}
+  .back-link:hover{color:var(--accent);}
+  .theme-dots{display:flex; gap:6px; padding:5px; border-radius:999px; background:rgba(var(--glass),var(--glass-a)); border:1px solid var(--card-border);}
+  .theme-dots button{width:16px; height:16px; border-radius:50%; border:2px solid #fff; cursor:pointer; padding:0; box-shadow:0 0 0 1px rgba(0,0,0,0.08);}
+  .theme-dots button.on{outline:2px solid var(--ink); outline-offset:1px;}
+  .td-sky{background:linear-gradient(135deg,#0e7fa8,#33b8c9);}
+  .td-lavender{background:linear-gradient(135deg,#7c5cc7,#c38fe0);}
+  .td-mint{background:linear-gradient(135deg,#189a72,#5fd0a4);}
+  .td-peach{background:linear-gradient(135deg,#d9772f,#f0b26b);}
+
+  main{max-width:780px; margin:0 auto; padding:52px 22px 70px;}
+  .page-kicker{color:var(--accent); font-weight:700; font-size:13.5px; margin:0 0 8px;}
+  .page-title{font-size:clamp(28px,5vw,42px); margin:0 0 8px;}
+  .page-updated{color:var(--ink-soft); font-size:13.5px; margin:0 0 30px;}
+  .legal-card{
+    background:rgba(var(--glass), var(--glass-a)); border:1px solid var(--card-border);
+    border-radius:22px; padding:clamp(22px,4vw,38px);
+    backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 10px 40px rgba(20,40,60,0.08);
+  }
+  .legal-card h2{font-size:18.5px; margin:28px 0 10px;}
+  .legal-card h2:first-child{margin-top:0;}
+  .legal-card p, .legal-card li{font-size:15px; line-height:1.75; color:var(--ink-soft);}
+  .legal-card ul{margin:10px 0; padding-left:20px;}
+  .legal-card li{margin-bottom:6px;}
+
+  footer{max-width:780px; margin:0 auto; padding:30px 22px 60px; text-align:center; color:var(--ink-soft); font-size:12.5px;}
+  footer a{color:var(--ink-soft); font-weight:600; text-decoration:none;}
+  footer a:hover{color:var(--accent); text-decoration:underline;}
+  footer .sep{margin:0 8px; opacity:.5;}
+
+  @media (max-width:600px){
+    main{padding:40px 16px 56px;}
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a class="back-link" href="/">&larr; Data Sphere Club</a>
+    <div class="theme-dots" role="group" aria-label="Theme">
+      <button class="td-sky on" data-theme="sky" aria-label="Sky theme"></button>
+      <button class="td-lavender" data-theme="lavender" aria-label="Lavender theme"></button>
+      <button class="td-mint" data-theme="mint" aria-label="Mint theme"></button>
+      <button class="td-peach" data-theme="peach" aria-label="Peach theme"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="page-kicker">Legal</p>
+  <h1 class="page-title">Privacy Policy</h1>
+  <p class="page-updated">Last updated: October 2026 &middot; Data Sphere Club, AI &amp; DS Department, Don Bosco Institute of Technology, Bengaluru</p>
+
+  <div class="legal-card">
+
+    <h2>1. Overview</h2>
+    <p>Data Sphere Club ("the Club", "we", "us") is a student-run club of the AI &amp; DS Department at Don Bosco Institute of Technology, Bengaluru. This policy explains what information we collect through this website and club activities, and how we use it.</p>
+
+    <h2>2. Information We Collect</h2>
+    <ul>
+      <li><strong>Registration details</strong> — name, email, phone number, department/year, and anything else you submit through our Google Form when you register.</li>
+      <li><strong>Feedback</strong> — anything you submit through the feedback form linked on this site.</li>
+      <li><strong>Event photos and videos</strong> — taken at club events and workshops, some of which may be published in the Gallery on this site.</li>
+      <li><strong>Theme preference</strong> — this site remembers your chosen color theme in your browser's local storage. This stays on your device and is never sent to us.</li>
+      <li><strong>Leaderboard</strong> — if the Club runs a members' leaderboard, your name and points may be shown publicly on the Leaderboard page. Ask us if you'd prefer initials, or to be left off.</li>
+    </ul>
+    <p>This website does not use tracking cookies or third-party analytics.</p>
+
+    <h2>3. How We Use Your Information</h2>
+    <p>We use registration details to manage club membership, share updates about meetings and events, and coordinate activities. Photos and videos from events may be used in the Gallery on this site and in the department's own promotional material.</p>
+
+    <h2>4. Sharing Your Information</h2>
+    <p>We don't sell or rent your information. It's only shared with club coordinators and the faculty advisor for the purpose of running the club, or where required by the institution.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>Registration and feedback are collected through Google Forms, which is governed by Google's own privacy policy. This site is hosted on Vercel, with its source code and content stored on GitHub.</p>
+
+    <h2>6. Photos and Videos</h2>
+    <p>By attending a Data Sphere Club event, you may be photographed or filmed for the Gallery on this site. If you'd like a specific photo or video removed, contact us using the details below and we'll take it down.</p>
+
+    <h2>7. Data Retention</h2>
+    <p>We keep registration information for as long as it's useful for running the club — generally for the academic year(s) you're an active member. You can ask us to delete it sooner at any time.</p>
+
+    <h2>8. Your Choices</h2>
+    <p>You can ask to see, correct, or delete the information we hold about you by reaching out to a club coordinator or through the feedback link on this site.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>This site and the Club are intended for college students and are not directed at children under 13.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this policy from time to time. The "last updated" date at the top of this page reflects the most recent revision.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions about this policy can be sent through the feedback link on the home page, or directly to a Data Sphere Club coordinator.</p>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Data Sphere Club, Don Bosco Institute of Technology, Bengaluru. All rights reserved.</p>
+  <p><a href="/">Home</a><span class="sep">&middot;</span><a href="/terms.html">Terms &amp; Conditions</a></p>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var saved = localStorage.getItem('ds-theme');
+  if(saved){ root.setAttribute('data-theme', saved); }
+  document.querySelectorAll('.theme-dots button').forEach(function(b){
+    if(b.dataset.theme === root.getAttribute('data-theme')) b.classList.add('on');
+    b.addEventListener('click', function(){
+      root.setAttribute('data-theme', b.dataset.theme);
+      localStorage.setItem('ds-theme', b.dataset.theme);
+      document.querySelectorAll('.theme-dots button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    });
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

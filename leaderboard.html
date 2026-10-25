@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%230e7fa8'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='10' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-20 32 32)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0e7fa8">
+<title>Leaderboard — Data Sphere Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --font-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+
+/* ---- Theme tokens (soft, light) ---- */
+  html[data-theme="sky"]{
+    --bg:#eef5fb; --bg2:#dcecf7; --ink:#12233a; --ink-soft:#4c6178;
+    --accent:#0e7fa8; --accent2:#33b8c9; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="lavender"]{
+    --bg:#f3f0fb; --bg2:#e6dff6; --ink:#2b2140; --ink-soft:#6a5d84;
+    --accent:#7c5cc7; --accent2:#c38fe0; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="mint"]{
+    --bg:#eefaf3; --bg2:#dcf3e6; --ink:#12362a; --ink-soft:#4e7365;
+    --accent:#189a72; --accent2:#5fd0a4; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="peach"]{
+    --bg:#fdf3ec; --bg2:#f9e3d3; --ink:#3a2416; --ink-soft:#7c5f4c;
+    --accent:#d9772f; --accent2:#f0b26b; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+
+  body{
+    margin:0; min-height:100%;
+    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--ink); font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); letter-spacing:-0.01em;}
+  a{color:var(--accent);}
+  ::selection{background:var(--accent2); color:#fff;}
+
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    background:rgba(var(--glass), 0.55);
+    border-bottom:1px solid var(--card-border);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    max-width:860px; margin:0 auto; padding:14px 20px;
+  }
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; text-decoration:none; color:var(--ink-soft);}
+  .back-link:hover{color:var(--accent);}
+  .theme-dots{display:flex; gap:6px; padding:5px; border-radius:999px; background:rgba(var(--glass),var(--glass-a)); border:1px solid var(--card-border);}
+  .theme-dots button{width:16px; height:16px; border-radius:50%; border:2px solid #fff; cursor:pointer; padding:0; box-shadow:0 0 0 1px rgba(0,0,0,0.08);}
+  .theme-dots button.on{outline:2px solid var(--ink); outline-offset:1px;}
+  .td-sky{background:linear-gradient(135deg,#0e7fa8,#33b8c9);}
+  .td-lavender{background:linear-gradient(135deg,#7c5cc7,#c38fe0);}
+  .td-mint{background:linear-gradient(135deg,#189a72,#5fd0a4);}
+  .td-peach{background:linear-gradient(135deg,#d9772f,#f0b26b);}
+
+  main{max-width:780px; margin:0 auto; padding:52px 22px 70px;}
+  .page-kicker{color:var(--accent); font-weight:700; font-size:13.5px; margin:0 0 8px;}
+  .page-title{font-size:clamp(28px,5vw,42px); margin:0 0 8px;}
+  .page-updated{color:var(--ink-soft); font-size:13.5px; margin:0 0 30px;}
+  .legal-card{
+    background:rgba(var(--glass), var(--glass-a)); border:1px solid var(--card-border);
+    border-radius:22px; padding:clamp(22px,4vw,38px);
+    backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 10px 40px rgba(20,40,60,0.08);
+  }
+  .legal-card h2{font-size:18.5px; margin:28px 0 10px;}
+  .legal-card h2:first-child{margin-top:0;}
+  .legal-card p, .legal-card li{font-size:15px; line-height:1.75; color:var(--ink-soft);}
+  .legal-card ul{margin:10px 0; padding-left:20px;}
+  .legal-card li{margin-bottom:6px;}
+
+  footer{max-width:780px; margin:0 auto; padding:30px 22px 60px; text-align:center; color:var(--ink-soft); font-size:12.5px;}
+  footer a{color:var(--ink-soft); font-weight:600; text-decoration:none;}
+  footer a:hover{color:var(--accent); text-decoration:underline;}
+  footer .sep{margin:0 8px; opacity:.5;}
+
+  @media (max-width:600px){
+    main{padding:40px 16px 56px;}
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  [hidden]{display:none !important;}
+  .lb-note{color:var(--ink-soft);font-size:14.5px;margin:0 0 22px;}
+  .lb-search{width:100%;padding:12px 16px;border-radius:14px;border:1px solid var(--card-border);background:rgba(var(--glass),var(--glass-a));font:500 15px var(--font-body);color:var(--ink);margin-bottom:22px;}
+  .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;align-items:end;}
+  .pod{text-align:center;padding:22px 12px;border-radius:20px;background:rgba(var(--glass),var(--glass-a));border:1px solid var(--card-border);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+  .pod.r1{padding-top:34px;padding-bottom:34px;border-color:var(--accent);}
+  .medal{display:inline-flex;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;font:700 17px var(--font-display);color:#fff;margin-bottom:10px;}
+  .m1{background:linear-gradient(135deg,#e9b73a,#f4d77a);} .m2{background:linear-gradient(135deg,#9aa6b2,#c9d2da);} .m3{background:linear-gradient(135deg,#c27a45,#e0a574);}
+  .pod b{display:block;font:700 16px var(--font-display);word-break:break-word;}
+  .pod .pts{display:block;color:var(--accent);font:700 22px var(--font-display);margin-top:4px;}
+  .pod small{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:4px;}
+  .lb-row{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:13px 18px;border-radius:14px;background:rgba(var(--glass),var(--glass-a));border:1px solid var(--card-border);margin-bottom:8px;}
+  .lb-rank{font:700 15px var(--font-display);color:var(--ink-soft);}
+  .lb-name{font-weight:700;word-break:break-word;} .lb-name small{display:block;font-weight:500;color:var(--ink-soft);font-size:12.5px;}
+  .lb-pts{font:700 17px var(--font-display);color:var(--accent);}
+  .lb-empty{text-align:center;color:var(--ink-soft);padding:30px 10px;}
+  @media (max-width:560px){.podium{grid-template-columns:1fr;} .pod.r1{order:-1;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a class="back-link" href="/">&larr; Data Sphere Club</a>
+    <div class="theme-dots" role="group" aria-label="Theme">
+      <button class="td-sky on" data-theme="sky" aria-label="Sky theme"></button>
+      <button class="td-lavender" data-theme="lavender" aria-label="Lavender theme"></button>
+      <button class="td-mint" data-theme="mint" aria-label="Mint theme"></button>
+      <button class="td-peach" data-theme="peach" aria-label="Peach theme"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="page-kicker">Members</p>
+  <h1 class="page-title">Leaderboard</h1>
+  <p class="page-updated" id="lbUpdated"></p>
+  <p class="lb-note" id="lbNote" hidden></p>
+  <input class="lb-search" id="lbSearch" type="search" placeholder="Search members…" hidden>
+  <div class="podium" id="podium"></div>
+  <div id="lbList"></div>
+  <p class="lb-empty" id="lbEmpty" hidden>The leaderboard opens soon — rankings will appear here once points are added.</p>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Data Sphere Club, Don Bosco Institute of Technology, Bengaluru. All rights reserved.</p>
+  <p><a href="/">Home</a><span class="sep">&middot;</span><a href="/privacy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="/terms.html">Terms &amp; Conditions</a></p>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var saved = localStorage.getItem('ds-theme');
+  if(saved){ root.setAttribute('data-theme', saved); }
+  document.querySelectorAll('.theme-dots button').forEach(function(b){
+    if(b.dataset.theme === root.getAttribute('data-theme')) b.classList.add('on');
+    b.addEventListener('click', function(){
+      root.setAttribute('data-theme', b.dataset.theme);
+      localStorage.setItem('ds-theme', b.dataset.theme);
+      document.querySelectorAll('.theme-dots button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    });
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var DEMO=['Aarav S | 480 | Hackathon winner','Diya R | 455','Karthik M | 455 | 5 events','Isha P | 390','Rohan K | 310','Meera N | 275','Vikram T | 240','Sana A | 120'];
+  var $=function(i){return document.getElementById(i);}, members=[];
+  var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+  var fmt=function(n){return n.toLocaleString('en-IN');};
+  function parse(lines){
+    var a=lines.map(function(l){var p=l.split(/\t|\|/).map(function(x){return x.trim();});return {name:p[0],pts:parseFloat(p[1])||0,note:p[2]||''};}).filter(function(m){return m.name;});
+    a.sort(function(x,y){return y.pts-x.pts||x.name.localeCompare(y.name);});
+    a.forEach(function(m,i){m.rank=(i&&a[i-1].pts===m.pts)?a[i-1].rank:i+1;});
+    return a;
+  }
+  function render(){
+    var q=$('lbSearch').value.trim().toLowerCase();
+    $('podium').innerHTML='';$('lbList').innerHTML='';
+    if(!q)members.slice(0,3).forEach(function(m){var k=Math.min(m.rank,3);
+      $('podium').insertAdjacentHTML('beforeend','<div class="pod r'+k+'"><span class="medal m'+k+'">'+m.rank+'</span><b>'+esc(m.name)+'</b><span class="pts">'+fmt(m.pts)+'</span><small>'+esc(m.note)+'</small></div>');});
+    (q?members.filter(function(m){return m.name.toLowerCase().indexOf(q)>-1;}):members.slice(3)).forEach(function(m){
+      $('lbList').insertAdjacentHTML('beforeend','<div class="lb-row"><span class="lb-rank">#'+m.rank+'</span><span class="lb-name">'+esc(m.name)+(m.note?'<small>'+esc(m.note)+'</small>':'')+'</span><span class="lb-pts">'+fmt(m.pts)+'</span></div>');});
+  }
+  function show(cfg){
+    cfg=cfg||{};var lb=cfg.leaderboard||[],demo=/[?&]demo=1/.test(location.search);
+    if(!lb.length&&demo)lb=DEMO;
+    members=parse(lb);
+    $('lbEmpty').hidden=!!members.length;$('lbSearch').hidden=!members.length;
+    $('lbNote').textContent=cfg.leaderboardNote||'';$('lbNote').hidden=!cfg.leaderboardNote;
+    var u=cfg.leaderboardUpdated&&new Date(cfg.leaderboardUpdated);
+    $('lbUpdated').textContent=(!cfg.leaderboard||!cfg.leaderboard.length)&&demo?'Sample data (demo mode)':(u&&!isNaN(u)?'Last updated '+u.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}):'');
+    render();
+  }
+  $('lbSearch').addEventListener('input',render);
+  fetch('/api/config',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){return j&&j.config;}).catch(function(){return null;})
+    .then(function(cfg){if(!cfg){try{cfg=JSON.parse(localStorage.getItem('ds-site-config')||'null');}catch(e){}}show(cfg);});
+
+})();
+</script>
+</body>
+</html>

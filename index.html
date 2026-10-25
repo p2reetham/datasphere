@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data Sphere Club — Don Bosco Institute of Technology</title>
+<meta name="description" content="Data Sphere Club — the AI &amp; DS department club at Don Bosco Institute of Technology, Bengaluru. Explore. Analyze. Build.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%230e7fa8'/%3E%3Cellipse cx='32' cy='32' rx='28' ry='10' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-20 32 32)'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0e7fa8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Data Sphere Club — AI &amp; DS Department">
+<meta property="og:description" content="Explore. Analyze. Build. Events, team, gallery and registration for the Data Sphere Club at Don Bosco Institute of Technology.">
+<meta property="og:image" content="/og-image.jpg">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --font-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body:'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  *{box-sizing:border-box;}
+
+  /* ---- Theme tokens (soft, light) ---- */
+  html[data-theme="sky"]{
+    --bg:#eef5fb; --bg2:#dcecf7; --ink:#12233a; --ink-soft:#4c6178;
+    --accent:#0e7fa8; --accent2:#33b8c9; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="lavender"]{
+    --bg:#f3f0fb; --bg2:#e6dff6; --ink:#2b2140; --ink-soft:#6a5d84;
+    --accent:#7c5cc7; --accent2:#c38fe0; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="mint"]{
+    --bg:#eefaf3; --bg2:#dcf3e6; --ink:#12362a; --ink-soft:#4e7365;
+    --accent:#189a72; --accent2:#5fd0a4; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+  html[data-theme="peach"]{
+    --bg:#fdf3ec; --bg2:#f9e3d3; --ink:#3a2416; --ink-soft:#7c5f4c;
+    --accent:#d9772f; --accent2:#f0b26b; --glass:255,255,255; --glass-a:0.55;
+    --card-border:rgba(255,255,255,0.65); --chip:#ffffffb3;
+  }
+
+  body{
+    margin:0; min-height:100%;
+    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--ink); font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); letter-spacing:-0.01em;}
+  a{color:inherit;}
+  ::selection{background:var(--accent2); color:#fff;}
+
+  /* ---- particles (hero only) ---- */
+  #particles{position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none;}
+
+  /* ---- Nav ---- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    background:transparent;
+    border-bottom:1px solid transparent;
+    transform:translateY(-100%); opacity:0; pointer-events:none;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), opacity .4s ease, background .5s ease, backdrop-filter .5s ease, border-color .5s ease;
+  }
+  header.nav.scrolled{
+    transform:translateY(0); opacity:1; pointer-events:auto;
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    background:rgba(var(--glass), 0.42);
+    border-bottom:1px solid var(--card-border);
+  }
+  .nav-row{
+    display:flex; align-items:center; gap:10px;
+    max-width:1180px; margin:0 auto; padding:12px 16px;
+  }
+  .brand{display:flex; align-items:center; gap:9px; font-family:var(--font-display); font-weight:700; font-size:16px; white-space:nowrap; color:#fff; transition:color .5s ease;}
+  header.nav.scrolled .brand{color:var(--ink);}
+  @media (max-width:560px){
+    .brand-text{display:none;}
+    .nav-row{gap:8px; padding:10px 12px;}
+    .theme-dots{padding:4px;}
+    .theme-dots button{width:15px; height:15px;}
+    nav.menu a{padding:8px 11px; font-size:13.5px;}
+  }
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);}
+  nav.menu{
+    display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; flex:1; padding:4px 0;
+  }
+  nav.menu::-webkit-scrollbar{display:none;}
+  nav.menu a{
+    position:relative; flex:0 0 auto; padding:9px 15px; border-radius:999px;
+    font-size:14.5px; font-weight:600; text-decoration:none; color:rgba(255,255,255,0.88);
+    transition:color .25s ease, background .25s ease; white-space:nowrap;
+  }
+  nav.menu a:hover{color:#fff;}
+  nav.menu a.active{color:#fff; background:var(--accent);}
+  header.nav.scrolled nav.menu a{color:var(--ink-soft);}
+  header.nav.scrolled nav.menu a:hover{color:var(--ink);}
+  .nav-tools{display:flex; align-items:center; gap:8px;}
+  .theme-dots{display:flex; gap:6px; padding:5px; border-radius:999px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.4); transition:background .5s ease, border-color .5s ease;}
+  header.nav.scrolled .theme-dots{background:rgba(var(--glass),var(--glass-a)); border-color:var(--card-border);}
+  .theme-dots button{
+    width:18px; height:18px; border-radius:50%; border:2px solid #fff; cursor:pointer; padding:0;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.08);
+  }
+  .theme-dots button.on{outline:2px solid var(--ink); outline-offset:1px;}
+  .td-sky{background:linear-gradient(135deg,#0e7fa8,#33b8c9);}
+  .td-lavender{background:linear-gradient(135deg,#7c5cc7,#c38fe0);}
+  .td-mint{background:linear-gradient(135deg,#189a72,#5fd0a4);}
+  .td-peach{background:linear-gradient(135deg,#d9772f,#f0b26b);}
+  .gear{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.4);
+    background:rgba(255,255,255,0.16); color:#fff; cursor:pointer; display:flex;
+    align-items:center; justify-content:center; font-size:15px; flex:0 0 auto;
+    transition:background .5s ease, border-color .5s ease, color .5s ease;
+  }
+  header.nav.scrolled .gear{background:rgba(var(--glass),var(--glass-a)); border-color:var(--card-border); color:var(--ink);}
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; min-height:100vh; min-height:100dvh;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    padding:48px 20px 60px;
+  }
+  @media (max-width:600px){
+    .hero{padding:32px 14px 48px;}
+    .hero-card{padding:30px 22px; border-radius:22px;}
+  }
+  @media (min-width:601px) and (max-width:1024px){
+    .hero-card{padding:38px 32px; max-width:600px;}
+  }
+  .hero-bg{
+    position:absolute; inset:0; background-size:cover; background-position:center 22%;
+    background-repeat:no-repeat; background-color:var(--bg2); filter:saturate(1.05);
+    opacity:0; animation:heroFade 1.3s ease forwards;
+  }
+  @keyframes heroFade{ to{opacity:1;} }
+  @media (min-aspect-ratio: 4/3){
+    .hero-bg{ background-size:contain; background-position:center; }
+  }
+  @media (max-width:600px){
+    .hero-bg{ background-position:center 15%; }
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(8,18,30,0.35) 0%, rgba(8,18,30,0.55) 55%, var(--bg) 100%);
+  }
+  .hero-card{
+    position:relative; z-index:2; max-width:720px; text-align:center;
+    padding:44px 38px; border-radius:28px;
+    background:rgba(var(--glass), 0.22);
+    border:1px solid rgba(255,255,255,0.35);
+    backdrop-filter:blur(22px) saturate(160%);
+    -webkit-backdrop-filter:blur(22px) saturate(160%);
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+    color:#fff;
+    animation:rise .9s cubic-bezier(.2,.8,.2,1) 1.3s both;
+  }
+  @keyframes rise{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
+  .eyebrow{font-size:13px; font-weight:600; color:#dff3fb; opacity:.9; margin:0 0 10px;}
+  .hero-card h1{font-size:clamp(34px,6vw,58px); line-height:1.02; margin:0 0 12px; font-weight:700;}
+  .hero-card p{font-size:16.5px; line-height:1.55; color:#eaf3f8; max-width:520px; margin:0 auto 26px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer;
+    font-family:var(--font-body); font-weight:700; font-size:15px;
+    padding:13px 26px; border-radius:999px; text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent); color:#fff; box-shadow:0 10px 30px color-mix(in srgb, var(--accent) 45%, transparent);}
+  .btn-ghost{background:rgba(255,255,255,0.18); color:#fff; border:1px solid rgba(255,255,255,0.5);}
+  .hero-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2;
+    color:#fff; font-size:12.5px; letter-spacing:.04em; display:flex; flex-direction:column;
+    align-items:center; gap:6px; opacity:0; animation:cueFade .8s ease 1.6s both;
+  }
+  @keyframes cueFade{ to{opacity:.85;} }
+  .scroll-cue .line{width:1px; height:28px; background:rgba(255,255,255,0.7); animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:.3;} 50%{opacity:1;}}
+
+  /* ---- Sections ---- */
+  section{max-width:1080px; margin:0 auto; padding:90px 22px;}
+  @media (max-width:600px){
+    section{padding:56px 18px;}
+    .glass-card{padding:24px 20px; border-radius:18px;}
+    .register-box{padding:38px 22px;}
+  }
+  .section-head{max-width:620px; margin:0 0 34px;}
+  .kicker{color:var(--accent); font-weight:700; font-size:13.5px; margin:0 0 8px;}
+  .section-head h2{font-size:clamp(26px,4vw,38px); margin:0 0 12px;}
+  .section-head p{color:var(--ink-soft); font-size:16px; line-height:1.6; margin:0;}
+
+  .glass-card{
+    background:rgba(var(--glass), var(--glass-a));
+    border:1px solid var(--card-border);
+    border-radius:22px; padding:32px;
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 10px 40px rgba(20,40,60,0.08);
+  }
+  .grid-2{display:grid; grid-template-columns:1.1fr .9fr; gap:22px;}
+  @media (max-width:760px){.grid-2{grid-template-columns:1fr;}}
+  .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+  .pill{background:var(--chip); border:1px solid var(--card-border); padding:7px 13px; border-radius:999px; font-size:13px; font-weight:600; color:var(--ink-soft);}
+
+  /* Register */
+  .register-box{text-align:center; padding:52px 34px;}
+  .register-box h2{font-size:clamp(24px,4vw,34px); margin:0 0 10px;}
+  .register-box p{color:var(--ink-soft); max-width:480px; margin:0 auto 26px; line-height:1.6;}
+
+  /* Gallery */
+  .gallery-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin-top:8px;}
+  @media (max-width:480px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr); gap:10px;}
+  }
+
+  /* Events */
+  .events-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; margin-top:8px;}
+  .event-card{
+    background:rgba(var(--glass), var(--glass-a)); border:1px solid var(--card-border);
+    border-radius:18px; padding:22px; backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+  }
+  .event-card h3{margin:0 0 6px; font-size:17px;}
+  .event-date{display:inline-block; font-size:12px; font-weight:700; color:var(--accent); background:var(--chip); border:1px solid var(--card-border); padding:4px 10px; border-radius:999px; margin-bottom:10px;}
+  .event-card p{margin:0; font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
+  .event-card.soon{border-style:dashed; background:rgba(var(--glass), 0.3); opacity:.8;}
+  .event-card.soon h3{color:var(--ink-soft);}
+  .feedback-line{margin:26px 2px 0;}
+  .btn-feedback{
+    display:inline-flex; align-items:center; gap:7px; padding:9px 18px; border-radius:999px;
+    background:var(--chip); border:1px solid var(--card-border); color:var(--accent);
+    font-weight:700; font-size:14px; text-decoration:none; transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .btn-feedback:hover{background:var(--accent); color:#fff; transform:translateY(-1px);}
+  .gtile{
+    position:relative; aspect-ratio:4/3; border-radius:16px; overflow:hidden;
+    background:rgba(var(--glass),var(--glass-a)); border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transform:translateY(16px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .gtile.in-view{opacity:1; transform:translateY(0);}
+  .gtile img, .gtile video{width:100%; height:100%; object-fit:cover; display:block; background:#000;}
+  .gtile.empty{flex-direction:column; gap:8px; color:var(--ink-soft); font-size:13px; text-align:center; padding:14px;}
+  .gtile.empty svg{opacity:.5;}
+
+  footer{max-width:1080px; margin:0 auto; padding:40px 22px 70px; text-align:center; color:var(--ink-soft); font-size:13.5px;}
+  .footer-org{margin:0 0 16px;}
+  .footer-social{display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+  .footer-social a{
+    display:inline-flex; align-items:center; padding:6px 14px; border-radius:999px;
+    background:var(--chip); border:1px solid var(--card-border); color:var(--ink-soft);
+    font-size:12.5px; font-weight:700; text-decoration:none; transition:background .2s ease, color .2s ease;
+  }
+  .footer-social a:hover{background:var(--accent); color:#fff;}
+  .footer-legal{margin:0 0 10px; font-size:12.5px;}
+  .footer-legal a{color:var(--ink-soft); text-decoration:none; font-weight:600;}
+  .footer-legal a:hover{color:var(--accent); text-decoration:underline;}
+  .footer-legal span{margin:0 8px; opacity:.5;}
+  .footer-copyright{margin:0; font-size:12px; opacity:.75;}
+
+  /* Admin modal */
+  .modal-backdrop{position:fixed; inset:0; background:rgba(10,18,30,0.45); backdrop-filter:blur(4px); z-index:100; display:none; align-items:center; justify-content:center; padding:20px;}
+  .modal-backdrop.open{display:flex;}
+  .modal{background:#fff; border-radius:20px; max-width:520px; width:100%; padding:26px; max-height:86vh; overflow:auto; box-shadow:0 30px 80px rgba(0,0,0,0.3);}
+  .modal h3{margin:0 0 4px;}
+  .modal .sub{color:var(--ink-soft); font-size:13px; margin:0 0 18px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--ink);}
+  .field input, .field textarea{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid #dfe4ea;
+    font-family:var(--font-body); font-size:14px; resize:vertical;
+  }
+  .field textarea{min-height:88px;}
+  .modal-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:8px;}
+  .btn-secondary{background:#eef1f4; color:var(--ink);}
+  .btn-small{padding:8px 14px; font-size:13px;}
+  .status-note{font-size:12.5px; color:var(--ink-soft); margin-top:10px;}
+
+  .event-row{
+    border:1px solid #e8ebef; border-radius:12px; padding:12px; margin-bottom:10px; position:relative;
+  }
+  .event-row input{margin-bottom:8px;}
+  .event-row input:last-of-type{margin-bottom:0;}
+  .event-row .removeEventBtn{
+    position:absolute; top:8px; right:8px; width:24px; height:24px; border-radius:50%;
+    border:none; background:#f1eef0; color:#8a7a80; cursor:pointer; font-size:14px; line-height:1;
+  }
+  .event-row .removeEventBtn:hover{background:#f2dcdc; color:#b33939;}
+  .event-row-label{font-size:11.5px; font-weight:700; color:var(--ink-soft); margin:0 0 4px;}
+  .gallery-admin-note{font-size:12.5px; color:var(--ink-soft); background:#f4f6f8; border-radius:10px; padding:10px 12px; margin:0 0 18px;}
+  .gallery-admin-note code{background:#e8ecef; padding:1px 5px; border-radius:5px; font-size:12px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero-card{animation:none; opacity:1; transform:none;}
+    .hero-bg{animation:none; opacity:1;}
+    .scroll-cue{animation:none; opacity:.85;}
+    .scroll-cue .line{animation:none;}
+    .gtile{opacity:1; transform:none; transition:none;}
+  }
+
+  [hidden]{display:none !important;}
+  .announce{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.5);color:#fff;font-size:13px;font-weight:700;text-decoration:none;}
+  .announce::before{content:"";width:7px;height:7px;border-radius:50%;background:#7dffcf;}
+  .announce:not([href]){cursor:default;}
+  .btn.disabled{pointer-events:none;opacity:.6;filter:grayscale(.3);}
+  .reg-note{margin:16px auto 0;color:var(--ink-soft);font-size:14px;max-width:460px;}
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+  .team-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:22px 16px;border-radius:18px;background:rgba(var(--glass),var(--glass-a));border:1px solid var(--card-border);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-decoration:none;color:var(--ink);transition:transform .2s ease;}
+  a.team-card:hover{transform:translateY(-3px);}
+  .team-card.soon{border-style:dashed;opacity:.75;}
+  .team-card b{font-family:var(--font-display);font-size:16px;}
+  .team-card span:last-child{font-size:13.5px;color:var(--ink-soft);}
+  .avatar{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));margin-bottom:6px;}
+  .next-event{margin:0 0 18px;font-size:15px;color:var(--ink-soft);}
+  .next-event b{color:var(--ink);}
+  .sub-h{font-size:18px;margin:38px 0 14px;color:var(--ink-soft);}
+  .ev-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .ev-act{font:700 12.5px var(--font-body);padding:6px 12px;border-radius:999px;border:1px solid var(--card-border);background:var(--chip);color:var(--accent);text-decoration:none;cursor:pointer;}
+  .ev-act:hover{background:var(--accent);color:#fff;}
+  #faq details{background:rgba(var(--glass),var(--glass-a));border:1px solid var(--card-border);border-radius:14px;padding:14px 18px;margin-bottom:10px;}
+  #faq summary{cursor:pointer;font-weight:700;font-size:15.5px;}
+  #faq details p{margin:10px 0 0;color:var(--ink-soft);line-height:1.65;font-size:14.5px;}
+
+header.nav{position:sticky;top:0;transform:none;opacity:1;pointer-events:auto;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border-bottom:1px solid var(--card-border)}
+header.nav .brand{color:var(--ink)}
+header.nav nav.menu a{color:var(--ink-soft)}
+header.nav nav.menu a:hover{color:var(--ink)}
+header.nav nav.menu a.active{color:#fff;background:var(--accent)}
+header.nav .theme-dots{background:rgba(var(--glass),var(--glass-a));border-color:var(--card-border)}
+header.nav .gear{background:rgba(var(--glass),var(--glass-a));border-color:var(--card-border);color:var(--ink)}
+.nav-row{max-width:1280px}
+.btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:11px 24px}
+
+:root{--font-display:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;--font-body:'Inter',ui-sans-serif,system-ui,sans-serif}
+section{max-width:1152px}
+.d1-hero{position:relative;max-width:1280px;margin:0 auto;padding:56px 64px 44px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.d1-copy h1{font-size:clamp(52px,8.2vw,100px);line-height:.96;margin:0 0 24px;font-weight:800;letter-spacing:-.03em}
+.d1-copy h1 span{color:var(--accent)}
+.d1-copy .eyebrow{color:var(--accent);font-size:13px;letter-spacing:.08em;font-weight:700;margin:0 0 18px}
+.d1-copy .lede{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:520px;margin:0 0 32px}
+.d1-copy .announce{background:var(--chip);border-color:var(--card-border);color:var(--accent)}
+.d1-copy .announce::before{background:var(--accent)}
+.d1-poster{position:relative;aspect-ratio:1/1;border-radius:32px;overflow:hidden;border:1px solid var(--card-border);box-shadow:0 24px 60px rgba(20,40,60,.14)}
+.d1-poster .hero-bg{background-size:cover !important;background-position:center !important}
+#heroParticles{display:none}
+.d1-strip{width:min(1152px,calc(100% - 40px));margin:0 auto;background:rgba(var(--glass),.9);border:1px solid var(--card-border);border-radius:20px;padding:18px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.d1-strip:has(#nextEvent[hidden]){display:none}
+.d1-strip .next-event{margin:0;font-size:17px}
+.d1-strip a{color:var(--accent);font-weight:700;text-decoration:none}
+@media(max-width:860px){.d1-hero{grid-template-columns:1fr;padding:28px 20px 32px;gap:28px}.d1-poster{order:-1;max-width:460px;margin:0 auto;width:100%}}
+
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.hero-bg{background-image:url('/hero.webp')}
+.d1-poster .hero-bg{animation-duration:.8s}
+.d1-copy{min-width:0}
+.d1-copy .hero-actions{justify-content:flex-start}
+header.nav.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent)}
+.theme-dots button{position:relative}
+.theme-dots button::after{content:"";position:absolute;inset:-8px}
+.modal{max-height:88vh;max-height:88dvh}
+@media(min-width:861px){.d1-poster{width:min(100%,max(340px,calc(100vh - 190px)));width:min(100%,max(340px,calc(100dvh - 190px)));justify-self:end}}
+@media(max-width:1100px){.d1-hero{padding:44px 36px 32px;gap:40px}}
+@media(max-width:860px){.d1-hero{padding:24px 20px 28px;gap:26px}}
+@media(max-width:600px){
+  .d1-copy .hero-actions .btn{flex:1 1 150px;justify-content:center}
+  .d1-copy .lede{font-size:17px}
+  .d1-strip{padding:16px 18px}
+  .glass-card,.event-card,.team-card,#faq details{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.88)}
+  .field input,.field textarea{font-size:16px}
+}
+
+#bgParticles{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.event-card.soon.in{opacity:.8}
+.team-card.soon.in{opacity:.75}
+.team-card.reveal.in{transition:opacity .75s ease,transform .25s ease}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+html.has-cursor,html.has-cursor *{cursor:none !important}
+html.has-cursor input,html.has-cursor textarea,html.has-cursor select{cursor:text !important}
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:9999;opacity:0;transition:opacity .2s}
+.cur-dot::before{content:"";position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.cur-ring::before{content:"";position:absolute;left:-17px;top:-17px;width:34px;height:34px;border:2px solid var(--accent);border-radius:50%;transition:transform .25s ease,background .25s ease,opacity .25s ease}
+.cur-ring.hov::before{transform:scale(1.7);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.cur-ring.down::before{transform:scale(.75)}
+.cur-ring.hov.down::before{transform:scale(1.3)}
+.cur-ring.txt::before{transform:scale(.4);opacity:.5}
+.cur-ripple{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9998;animation:curRipple .6s ease-out forwards}
+@keyframes curRipple{to{transform:scale(6);opacity:0}}
+</style>
+<link rel="preload" as="image" href="/hero.webp" type="image/webp" fetchpriority="high">
+</head>
+<body>
+<canvas id="bgParticles" aria-hidden="true"></canvas>
+<header class="nav">
+  <div class="nav-row">
+    <div class="brand"><span class="dot"></span><span class="brand-text">Data Sphere Club</span></div>
+    <nav class="menu" id="menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#mission">Mission</a>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#events">Events</a>
+      <a href="#register">Register</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="/leaderboard.html">Leaderboard</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="theme-dots" role="group" aria-label="Theme">
+        <button class="td-sky on" data-theme="sky" aria-label="Sky theme"></button>
+        <button class="td-lavender" data-theme="lavender" aria-label="Lavender theme"></button>
+        <button class="td-mint" data-theme="mint" aria-label="Mint theme"></button>
+        <button class="td-peach" data-theme="peach" aria-label="Peach theme"></button>
+      </div>
+      <button class="gear" id="gearBtn" title="Edit site content" aria-label="Admin settings">⚙</button>
+    </div>
+  </div>
+</header>
+<section id="home" class="d1-hero">
+  <div class="d1-copy">
+    <a id="announce" class="announce" hidden></a>
+    <p class="eyebrow">AI &amp; DS DEPARTMENT · DON BOSCO INSTITUTE OF TECHNOLOGY</p>
+    <h1>Explore.<br>Analyze.<br><span>Build.</span></h1>
+    <p class="lede">A student community for anyone curious about data, algorithms and intelligent systems — from first dataset to first deployed model.</p>
+    <div class="hero-actions"><a id="heroRegBtn" href="#register" class="btn btn-primary">Register now</a><a href="#events" class="btn btn-outline">See events</a></div>
+  </div>
+  <div class="d1-poster"><div class="hero-bg" id="heroBg"></div></div>
+  <canvas id="heroParticles"></canvas>
+</section>
+<div class="d1-strip"><p class="next-event" id="nextEvent" hidden></p><a href="#events">All events →</a></div>
+<section id="mission">
+  <div class="section-head">
+    <p class="kicker">Department mission</p>
+    <h2>Why the department exists</h2>
+  </div>
+  <div class="glass-card">
+    <p style="font-size:16px; line-height:1.75; color:var(--ink-soft); margin:0;">
+      The Department of Artificial Intelligence &amp; Data Science is built to turn curious students into confident practitioners — grounding classroom theory in real datasets, real problems, and real tools. We aim to give every student a hands-on path through machine learning, statistics, and software engineering, so they graduate ready to build, not just to describe.
+    </p>
+    <div class="pill-row">
+      <span class="pill">Machine Learning</span>
+      <span class="pill">Data Engineering</span>
+      <span class="pill">Applied Statistics</span>
+      <span class="pill">Responsible AI</span>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="section-head">
+    <p class="kicker">About the club</p>
+    <h2>Where the department's students build together</h2>
+  </div>
+  <div class="grid-2">
+    <div class="glass-card">
+      <p style="font-size:16px; line-height:1.75; color:var(--ink-soft); margin:0 0 14px;">
+        Data Sphere is the student-run club of the AI &amp; DS department. We run weekly build sessions, dataset deep-dives, and short project sprints where members ship something small every time — a model, a dashboard, a scraper, a visualization.
+      </p>
+      <p style="font-size:16px; line-height:1.75; color:var(--ink-soft); margin:0;">
+        Beyond the weekly sessions, the club organizes hackathons, guest talks from practitioners, and peer-led workshops. No prior experience is required — just a willingness to open a notebook and try something.
+      </p>
+    </div>
+    <div class="glass-card">
+      <h3 style="margin:0 0 12px; font-size:18px;">What members get</h3>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 8px;">→ Hands-on project sprints, every week</p>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 8px;">→ Access to compute and datasets</p>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 8px;">→ Mentorship from seniors and faculty</p>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0;">→ A team for hackathons and competitions</p>
+    </div>
+  </div>
+</section>
+<section id="team" hidden>
+  <div class="section-head"><p class="kicker">Team</p><h2>The people behind the club</h2></div>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+<section id="events">
+  <div class="section-head">
+    <p class="kicker">Events</p>
+    <h2>What's happening</h2>
+  </div>
+  <div class="events-grid" id="eventsGrid"></div>
+  <h3 class="sub-h" id="pastHead" hidden>Past events</h3>
+  <div class="events-grid" id="pastGrid" hidden></div>
+  <p class="feedback-line">
+    <a id="feedbackLink" class="btn-feedback" href="#" target="_blank" rel="noopener">Share your feedback <span aria-hidden="true">→</span></a>
+  </p>
+</section>
+<section id="register">
+  <div class="glass-card register-box">
+    <p class="kicker" style="text-align:center;">Registration</p>
+    <h2>Join Data Sphere Club</h2>
+    <p>Registration takes about two minutes. Fill out the form and a club coordinator will add you to the members' group with session timings and updates.</p>
+    <a id="registerBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">Register on Google Form</a>
+    <p class="reg-note" id="regNote" hidden></p>
+  </div>
+</section>
+<section id="gallery">
+  <div class="section-head">
+    <p class="kicker">Gallery</p>
+    <h2>Moments from the club</h2>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+<section id="faq" hidden>
+  <div class="section-head"><p class="kicker">FAQ</p><h2>Quick answers</h2></div>
+  <div id="faqList"></div>
+</section>
+<footer>
+  <p class="footer-org">Data Sphere Club — AI &amp; DS Department, Don Bosco Institute of Technology, Bengaluru, Karnataka</p>
+  <div class="footer-social" id="footerSocial"></div>
+  <div class="footer-legal">
+    <a href="/leaderboard.html">Leaderboard</a>
+    <span aria-hidden="true">·</span>
+    <a id="privacyLink" href="#" target="_blank" rel="noopener">Privacy Policy</a>
+    <span aria-hidden="true">·</span>
+    <a id="termsLink" href="#" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </div>
+  <p class="footer-copyright" id="footerCopyright"></p>
+</footer>
+
+<div class="modal-backdrop" id="pwBackdrop">
+  <div class="modal" style="max-width:360px;">
+    <h3 id="pwTitle">Admin access</h3>
+    <p class="sub" id="pwSub">Enter the admin password to edit this site.</p>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="pwInput" autocomplete="current-password">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="pwCancel">Cancel</button>
+      <button class="btn btn-primary" id="pwSubmit">Continue</button>
+    </div>
+    <p class="status-note" id="pwStatus"></p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <h3>Edit site content</h3>
+    <p class="sub">Changes apply instantly for every visitor.</p>
+    <div class="field">
+      <label>Google Form registration link</label>
+      <input type="url" id="cfgFormUrl" placeholder="https://forms.gle/...">
+    </div>
+    <div class="field">
+      <label>Feedback form link</label>
+      <input type="url" id="cfgFeedbackUrl" placeholder="https://forms.gle/...">
+    </div>
+    <div class="field">
+      <label>Events <span style="font-weight:500;color:#6b7a8a">(date as YYYY-MM-DD moves an event to Past automatically)</span></label>
+      <div id="eventsEditorList"></div>
+      <button type="button" class="btn btn-secondary btn-small" id="addEventBtn">+ Add event</button>
+    </div>
+    <p class="gallery-admin-note">Gallery photos and videos aren't edited here — drop files into the <code>/gallery</code> folder and redeploy. See the README for details.</p>
+    <div class="field">
+      <label>Department mission text</label>
+      <textarea id="cfgMission"></textarea>
+    </div>
+    <div class="field">
+      <label>About club text (paragraph 1)</label>
+      <textarea id="cfgAbout1"></textarea>
+    </div>
+    <div class="field">
+      <label>Social links</label>
+      <div id="socialEditorList"></div>
+      <button type="button" class="btn btn-secondary btn-small" id="addSocialBtn">+ Add link</button>
+    </div>
+    <div class="field">
+      <label>Privacy Policy link</label>
+      <input type="text" id="cfgPrivacyUrl" placeholder="/privacy.html or https://...">
+    </div>
+    <div class="field">
+      <label>Terms &amp; Conditions link</label>
+      <input type="text" id="cfgTermsUrl" placeholder="/terms.html or https://...">
+    </div>
+    <div class="field">
+      <label>Copyright text (year is added automatically)</label>
+      <input type="text" id="cfgCopyright" placeholder="Data Sphere Club. All rights reserved.">
+    </div>
+    <div class="field"><label><input type="checkbox" id="cfgRegOpen" style="width:auto;margin-right:8px">Registrations open</label>
+      <input type="text" id="cfgRegMsg" placeholder="Message shown when closed" style="margin-top:8px"></div>
+    <div class="field"><label>Announcement banner (blank = hidden)</label>
+      <input type="text" id="cfgAnnounce" placeholder="e.g. Registrations close Friday!">
+      <input type="text" id="cfgAnnounceUrl" placeholder="Optional link (https://...)" style="margin-top:8px"></div>
+    <div class="field"><label>Team — one per line: Name | Role | Link (link optional)</label><textarea id="cfgTeam"></textarea></div>
+    <div class="field"><label>FAQ — one per line: Question | Answer</label><textarea id="cfgFaq"></textarea></div>
+    <div class="field"><label>Leaderboard — one per line: Name | Points | Note (note optional). Pasting from a spreadsheet works.</label>
+      <textarea id="cfgLeaderboard" style="min-height:140px"></textarea>
+      <input type="text" id="cfgLbNote" placeholder="Line shown under the leaderboard title" style="margin-top:8px"></div>
+    <div class="field" id="pwFieldWrap">
+      <label>Change admin password (leave blank to keep current)</label>
+      <input type="password" id="cfgNewPass" autocomplete="new-password">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveBtn">Save changes</button>
+    </div>
+    <p class="status-note" id="statusNote"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---------- Theme ----------
+  var root = document.documentElement;
+  var saved = localStorage.getItem('ds-theme');
+  if(saved){ root.setAttribute('data-theme', saved); }
+  document.querySelectorAll('.theme-dots button').forEach(function(b){
+    if(b.dataset.theme === root.getAttribute('data-theme')) b.classList.add('on');
+    b.addEventListener('click', function(){
+      root.setAttribute('data-theme', b.dataset.theme);
+      localStorage.setItem('ds-theme', b.dataset.theme);
+      document.querySelectorAll('.theme-dots button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+    });
+  });
+
+  // ---------- Hero background ----------
+  /* hero image is set in CSS (/hero.webp) */
+
+  // ---------- Nav appears on scroll ----------
+  var navEl = document.querySelector('header.nav');
+  function navThreshold(){
+    var heroEl = document.getElementById('home');
+    return Math.max(90, (heroEl ? heroEl.clientHeight : window.innerHeight) * 0.55);
+  }
+  function updateNavState(){
+    if(window.scrollY > navThreshold()){ navEl.classList.add('scrolled'); }
+    else { navEl.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', updateNavState, {passive:true});
+  window.addEventListener('resize', updateNavState);
+  updateNavState();
+
+  // ---------- Nav active state ----------
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.menu a[href^="#"]'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = '#' + e.target.id;
+        links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(s){ if(s) io.observe(s); });
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      links.forEach(function(x){x.classList.remove('active');});
+      a.classList.add('active');
+    });
+  });
+
+  // ---------- Particle effect (hero) ----------
+  var canvas = document.getElementById('heroParticles');
+  var ctx = canvas.getContext('2d');
+  var hero = document.getElementById('home');
+  var particles = [];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    canvas.width = hero.clientWidth;
+    canvas.height = hero.clientHeight;
+  }
+  function initParticles(){
+    var count = Math.min(70, Math.floor((canvas.width*canvas.height)/22000));
+    particles = [];
+    for(var i=0;i<count;i++){
+      particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.8+0.6,
+        vx: (Math.random()-0.5)*0.25,
+        vy: (Math.random()-0.5)*0.25,
+        a: Math.random()*0.5+0.25
+      });
+    }
+  }
+  function tick(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = '#ffffff';
+    particles.forEach(function(p){
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0) p.x=canvas.width; if(p.x>canvas.width) p.x=0;
+      if(p.y<0) p.y=canvas.height; if(p.y>canvas.height) p.y=0;
+      ctx.globalAlpha = p.a;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    if(!reduceMotion) requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize', function(){ resize(); initParticles(); });
+  resize(); initParticles();
+  /* particle animation is off in this layout (saves battery) */
+
+  // ---------- Config (db-backed, with defaults) ----------
+  var DEFAULTS = {
+    formUrl: 'https://forms.gle/REPLACE_WITH_YOUR_GOOGLE_FORM_LINK',
+    feedbackUrl: 'https://forms.gle/REPLACE_WITH_YOUR_FEEDBACK_FORM_LINK',
+    events: [
+      'Day 1 — Inauguration | | Kickoff event for Data Sphere Club — welcome address, department overview, and a look at what lies ahead this year.',
+      'Coming soon | | More events will be announced here.',
+      'Coming soon | | More events will be announced here.'
+    ],
+    mission: document.querySelector('#mission .glass-card p').textContent.trim(),
+    about1: document.querySelector('#about .grid-2 .glass-card p').textContent.trim(),
+    socialLinks: [
+      'Instagram | https://instagram.com/REPLACE_WITH_YOUR_HANDLE',
+      'WhatsApp | https://wa.me/REPLACE_WITH_YOUR_NUMBER'
+    ],
+    privacyUrl: '/privacy.html',
+    termsUrl: '/terms.html',
+    regOpen: true,
+    regClosedMsg: 'Registrations are closed for now — follow our social links for the next round.',
+    announcement: '', announcementUrl: '',
+    team: ['Name coming soon | Faculty Coordinator', 'Name coming soon | Club President', 'Name coming soon | Vice President'],
+    faq: ['Who can join? | Any student interested in data, AI and building things is welcome.', 'Do I need prior experience? | No — beginners are welcome. Curiosity matters more than experience.', 'How do I register? | Use the Register button on this page and fill in the Google Form.'],
+    leaderboard: [], leaderboardNote: '', leaderboardUpdated: '',
+    copyrightText: 'Data Sphere Club, Don Bosco Institute of Technology, Bengaluru. All rights reserved.'
+  };
+  var config = Object.assign({}, DEFAULTS);
+  var db = null, canEdit = false, apiMode = false, pendingPassword = null;
+
+  // Each gallery tile fades + rises into place the moment it scrolls into view.
+  var galleryIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        galleryIo.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  function observeGalleryFade(){
+    document.querySelectorAll('#galleryGrid .gtile').forEach(function(tile, i){
+      tile.style.transitionDelay = (i % 8) * 70 + 'ms';
+      galleryIo.observe(tile);
+    });
+  }
+
+  function renderGalleryTiles(items){
+    var grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+    if(items && items.length){
+      items.forEach(function(item){
+        var d = document.createElement('div');
+        d.className = 'gtile';
+        if(item.type === 'video'){
+          var v = document.createElement('video');
+          v.src = item.src; v.controls = true; v.preload = 'metadata'; v.playsInline = true;
+          d.appendChild(v);
+        } else {
+          var img = document.createElement('img');
+          img.src = item.src; img.loading = 'lazy'; img.alt = 'Club gallery photo';
+          d.appendChild(img);
+        }
+        grid.appendChild(d);
+      });
+    } else {
+      for(var i=0;i<4;i++){
+        var d = document.createElement('div');
+        d.className = 'gtile empty';
+        d.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg><span>Photos coming soon</span>';
+        grid.appendChild(d);
+      }
+    }
+    observeGalleryFade();
+  }
+  renderGalleryTiles([]);
+
+  // Gallery photos/videos live in /gallery on disk (see README) — a small
+  // build step writes /gallery/manifest.json listing whatever's in that
+  // folder, and this just renders whatever it finds. On claude.ai, or
+  // before that folder exists, this 404s quietly and the placeholders above
+  // stay put.
+  async function loadGalleryManifest(){
+    try{
+      var res = await fetch('/gallery/manifest.json', {cache:'no-store'});
+      if(!res.ok) return;
+      var man = await res.json();
+      var items = []
+        .concat((man.images||[]).map(function(src){return {type:'image', src:src};}))
+        .concat((man.videos||[]).map(function(src){return {type:'video', src:src};}));
+      if(items.length) renderGalleryTiles(items);
+    }catch(e){ /* no manifest here — keep placeholders */ }
+  }
+  loadGalleryManifest();
+
+  function renderConfig(){
+    document.getElementById('registerBtn').href = config.formUrl;
+    document.getElementById('feedbackLink').href = config.feedbackUrl;
+
+    document.getElementById('privacyLink').href = config.privacyUrl;
+    document.getElementById('termsLink').href = config.termsUrl;
+    document.getElementById('footerCopyright').textContent =
+      '© ' + new Date().getFullYear() + ' ' + (config.copyrightText || DEFAULTS.copyrightText);
+
+    var socialWrap = document.getElementById('footerSocial');
+    socialWrap.innerHTML = '';
+    (config.socialLinks || []).forEach(function(line){
+      var parts = line.split('|').map(function(s){return s.trim();});
+      var label = parts[0], url = parts[1];
+      if(!label || !url || /REPLACE_WITH/.test(url)) return;
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label;
+      socialWrap.appendChild(a);
+    });
+
+    renderEvents();
+    renderExtras();
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function isoDate(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec((s||'').trim());return m?new Date(+m[1],+m[2]-1,+m[3]):null;}
+  function fmtDate(d){return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});}
+  function pad(n){return (n<10?'0':'')+n;}
+  function ymd(d){return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate());}
+  function downloadIcs(ev){
+    var t=function(x){return String(x).replace(/[\\;,]/g,'\\$&').replace(/\n/g,'\\n');};
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Data Sphere Club//EN','BEGIN:VEVENT',
+      'UID:'+ymd(ev.d)+'-'+encodeURIComponent(ev.title)+'@datasphere','DTSTAMP:'+ymd(new Date())+'T000000Z',
+      'DTSTART;VALUE=DATE:'+ymd(ev.d),'DTEND;VALUE=DATE:'+ymd(new Date(ev.d.getTime()+864e5)),
+      'SUMMARY:'+t(ev.title),'DESCRIPTION:'+t(ev.desc||''),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
+    a.download=ev.title.replace(/[^\w]+/g,'-')+'.ics';document.body.appendChild(a);a.click();a.remove();
+  }
+  function renderEvents(){
+    var today=new Date();today=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+    var list=(config.events||[]).map(function(line){
+      var p=line.split('|').map(function(x){return x.trim();});
+      var e={title:p[0]||'Coming soon',date:p[1]||'',desc:p[2]||'',link:p[3]||''};
+      e.d=isoDate(e.date);e.soon=e.title.toLowerCase()==='coming soon';return e;
+    });
+    var past=list.filter(function(e){return e.d&&e.d<today;}).sort(function(a,b){return b.d-a.d;});
+    var up=list.filter(function(e){return !(e.d&&e.d<today);});
+    var dated=up.filter(function(e){return e.d;}).sort(function(a,b){return a.d-b.d;});
+    up=dated.concat(up.filter(function(e){return !e.d;}));
+    function card(e,isPast){
+      var c=document.createElement('div');c.className='event-card'+(e.soon?' soon':'');
+      var h='';
+      if(e.date)h+='<span class="event-date">'+esc(e.d?fmtDate(e.d):e.date)+'</span><br>';
+      h+='<h3>'+esc(e.title)+'</h3>';
+      if(e.desc)h+='<p>'+esc(e.desc)+'</p>';
+      var acts='';
+      if(!isPast&&e.d)acts+='<button type="button" class="ev-act ev-cal">Add to calendar</button>';
+      if(e.link&&!e.soon)acts+='<a class="ev-act" href="'+esc(e.link)+'" target="_blank" rel="noopener">'+(isPast?'View photos →':'Details →')+'</a>';
+      if(acts)h+='<div class="ev-actions">'+acts+'</div>';
+      c.innerHTML=h;
+      var b=c.querySelector('.ev-cal');if(b)b.addEventListener('click',function(){downloadIcs(e);});
+      return c;
+    }
+    var g=document.getElementById('eventsGrid');g.innerHTML='';up.forEach(function(e){g.appendChild(card(e,false));});
+    var pg=document.getElementById('pastGrid');pg.innerHTML='';past.forEach(function(e){pg.appendChild(card(e,true));});
+    document.getElementById('pastHead').hidden=!past.length;pg.hidden=!past.length;
+    var nx=document.getElementById('nextEvent'),n=dated[0];
+    if(n){var days=Math.round((n.d-today)/864e5);
+      nx.innerHTML='Next up: <b>'+esc(n.title)+'</b> — '+(days===0?'today':days===1?'tomorrow':'in '+days+' days');nx.hidden=false;}
+    else nx.hidden=true;
+  }
+  function renderExtras(){
+    var ph=/REPLACE_WITH/.test(config.formUrl||''),open=config.regOpen!==false&&!ph;
+    var rb=document.getElementById('registerBtn'),hb=document.getElementById('heroRegBtn'),note=document.getElementById('regNote');
+    var label=open?'Register on Google Form':(ph&&config.regOpen!==false?'Registration opening soon':'Registrations closed');
+    if(open){rb.href=config.formUrl;rb.classList.remove('disabled');rb.removeAttribute('aria-disabled');}
+    else{rb.removeAttribute('href');rb.classList.add('disabled');rb.setAttribute('aria-disabled','true');}
+    rb.textContent=label;hb.textContent=open?'Register now':label;
+    note.textContent=config.regClosedMsg||'';note.hidden=open||!config.regClosedMsg;
+    document.getElementById('feedbackLink').parentNode.hidden=/REPLACE_WITH/.test(config.feedbackUrl||'');
+    var an=document.getElementById('announce');
+    if(config.announcement){an.textContent=config.announcement;an.hidden=false;
+      if(config.announcementUrl){an.href=config.announcementUrl;an.target='_blank';an.rel='noopener';}else an.removeAttribute('href');}
+    else an.hidden=true;
+    var tg=document.getElementById('teamGrid');tg.innerHTML='';
+    var team=(config.team||[]).map(function(l){return l.split('|').map(function(x){return x.trim();});}).filter(function(p){return p[0];});
+    document.getElementById('team').hidden=!team.length;document.querySelector('nav.menu a[href="#team"]').hidden=!team.length;
+    team.forEach(function(p){
+      var c=document.createElement(p[2]?'a':'div');c.className='team-card'+(/coming soon/i.test(p[0])?' soon':'');
+      if(p[2]){c.href=p[2];c.target='_blank';c.rel='noopener';}
+      var ini=p[0].split(/\s+/).slice(0,2).map(function(w){return w[0];}).join('').toUpperCase();
+      c.innerHTML='<span class="avatar">'+esc(ini)+'</span><b>'+esc(p[0])+'</b><span>'+esc(p[1]||'')+'</span>';
+      tg.appendChild(c);
+    });
+    var fl=document.getElementById('faqList');fl.innerHTML='';
+    var faq=(config.faq||[]).filter(Boolean);
+    document.getElementById('faq').hidden=!faq.length;document.querySelector('nav.menu a[href="#faq"]').hidden=!faq.length;
+    faq.forEach(function(l){var i=l.indexOf('|');if(i<1)return;var d=document.createElement('details');
+      d.innerHTML='<summary>'+esc(l.slice(0,i).trim())+'</summary><p>'+esc(l.slice(i+1).trim())+'</p>';fl.appendChild(d);});
+  }
+  renderConfig();
+
+  function applyDoc(doc){
+    if(!doc) return;
+    config = Object.assign({}, DEFAULTS, doc);
+    renderConfig();
+  }
+
+  function loadLocalSiteConfig(){
+    try{
+      var raw = localStorage.getItem('ds-site-config');
+      if(raw) applyDoc(JSON.parse(raw));
+    }catch(e){}
+  }
+  loadLocalSiteConfig();
+
+  // Tries the Vercel + GitHub backend (see /api/config.js). Only present
+  // when this page is deployed on Vercel with that function configured —
+  // absent on claude.ai and in plain local previews, where it 404s/fails
+  // and the page quietly falls back to the next tier.
+  async function tryApiConfig(){
+    try{
+      var res = await fetch('/api/config', {method:'GET'});
+      if(!res.ok) return false;
+      var json = await res.json();
+      apiMode = true;
+      if(json.config) applyDoc(json.config);
+      return true;
+    }catch(e){ return false; }
+  }
+
+  async function saveSiteConfig(newDoc){
+    if(db){
+      try{ await db.doc('config/site').set(newDoc); return {ok:true, shared:true}; }
+      catch(e){ /* fall through */ }
+    }
+    if(apiMode){
+      try{
+        var res = await fetch('/api/config', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({password: pendingPassword, config: newDoc})
+        });
+        if(res.status === 401) return {ok:false, shared:true, authError:true};
+        if(!res.ok) throw new Error('save failed');
+        return {ok:true, shared:true};
+      }catch(e){ /* fall through to local save below */ }
+    }
+    try{
+      localStorage.setItem('ds-site-config', JSON.stringify(newDoc));
+      return {ok:true, shared:false};
+    }catch(e){
+      return {ok:false, shared:false};
+    }
+  }
+
+  async function initBackend(){
+    try{
+      if(window.claude && window.claude.use){
+        var userCap = await window.claude.use('user');
+        canEdit = !!(userCap && userCap.canEdit && userCap.canEdit());
+        db = await window.claude.use('db');
+        if(db){
+          var docRef = db.doc('config/site');
+          docRef.onSnapshot(function(snap){
+            if(snap && snap.exists){ applyDoc(snap.data); }
+          });
+          return;
+        }
+      }
+    }catch(err){ /* fall through to the API tier below */ }
+    await tryApiConfig();
+  }
+  initBackend();
+
+  // ---------- Admin password gate ----------
+  // Note: this runs in the browser, so it deters casual visitors but is not
+  // cryptographic security — anyone reading the page source could bypass it.
+  async function sha256(str){
+    var enc = new TextEncoder().encode(str);
+    var buf = await crypto.subtle.digest('SHA-256', enc);
+    return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  }
+  async function getStoredHash(){
+    if(db){
+      try{
+        var snap = await db.doc('config/admin').get();
+        if(snap && snap.exists && snap.data && snap.data.passHash) return snap.data.passHash;
+      }catch(e){}
+    }
+    return localStorage.getItem('ds-admin-hash') || null;
+  }
+  async function setStoredHash(hash){
+    if(db){
+      try{ await db.doc('config/admin').set({passHash: hash}); return true; }catch(e){}
+    }
+    localStorage.setItem('ds-admin-hash', hash);
+    return true;
+  }
+
+  var backdrop = document.getElementById('modalBackdrop');
+  var pwBackdrop = document.getElementById('pwBackdrop');
+  var pwInput = document.getElementById('pwInput');
+  var pwStatus = document.getElementById('pwStatus');
+  var eventsEditorList = document.getElementById('eventsEditorList');
+
+  function addEventRow(title, date, desc, link){
+    var row = document.createElement('div');
+    row.className = 'event-row';
+    row.innerHTML =
+      '<button type="button" class="removeEventBtn" title="Remove event">✕</button>' +
+      '<p class="event-row-label">Title</p>' +
+      '<input type="text" class="ev-title" placeholder="Event title, or \'Coming soon\'">' +
+      '<p class="event-row-label">Date (optional)</p>' +
+      '<input type="text" class="ev-date" placeholder="YYYY-MM-DD, e.g. 2026-10-12">' +
+      '<p class="event-row-label">Description (optional)</p>' +
+      '<input type="text" class="ev-desc" placeholder="What it is / what to expect">' +
+      '<p class="event-row-label">Photos / details link (optional)</p>' +
+      '<input type="text" class="ev-link" placeholder="https://... or #gallery">';
+    row.querySelector('.ev-title').value = title || '';
+    row.querySelector('.ev-date').value = date || '';
+    row.querySelector('.ev-desc').value = desc || '';
+    row.querySelector('.ev-link').value = link || '';
+    row.querySelector('.removeEventBtn').addEventListener('click', function(){ row.remove(); });
+    eventsEditorList.appendChild(row);
+  }
+
+  document.getElementById('addEventBtn').addEventListener('click', function(){
+    addEventRow('', '', '');
+    eventsEditorList.lastElementChild.querySelector('.ev-title').focus();
+  });
+
+  function readEventRows(){
+    return Array.prototype.slice.call(eventsEditorList.querySelectorAll('.event-row')).map(function(row){
+      var title = row.querySelector('.ev-title').value.trim();
+      var date = row.querySelector('.ev-date').value.trim();
+      var desc = row.querySelector('.ev-desc').value.trim();
+      var link = row.querySelector('.ev-link').value.trim();
+      return { title: title, line: title ? [title, date, desc, link].join(' | ') : null };
+    }).filter(function(r){ return r.line; }).map(function(r){ return r.line; });
+  }
+
+  var socialEditorList = document.getElementById('socialEditorList');
+
+  function addSocialRow(label, url){
+    var row = document.createElement('div');
+    row.className = 'event-row';
+    row.innerHTML =
+      '<button type="button" class="removeEventBtn" title="Remove link">✕</button>' +
+      '<p class="event-row-label">Label</p>' +
+      '<input type="text" class="sl-label" placeholder="e.g. Instagram, WhatsApp, LinkedIn">' +
+      '<p class="event-row-label">Link</p>' +
+      '<input type="url" class="sl-url" placeholder="https://...">';
+    row.querySelector('.sl-label').value = label || '';
+    row.querySelector('.sl-url').value = url || '';
+    row.querySelector('.removeEventBtn').addEventListener('click', function(){ row.remove(); });
+    socialEditorList.appendChild(row);
+  }
+
+  document.getElementById('addSocialBtn').addEventListener('click', function(){
+    addSocialRow('', '');
+    socialEditorList.lastElementChild.querySelector('.sl-label').focus();
+  });
+
+  function readSocialRows(){
+    return Array.prototype.slice.call(socialEditorList.querySelectorAll('.event-row')).map(function(row){
+      var label = row.querySelector('.sl-label').value.trim();
+      var url = row.querySelector('.sl-url').value.trim();
+      return (label && url) ? (label + ' | ' + url) : null;
+    }).filter(Boolean);
+  }
+
+  function openSettings(){
+    document.getElementById('cfgFormUrl').value = config.formUrl || '';
+    document.getElementById('cfgFeedbackUrl').value = config.feedbackUrl || '';
+    eventsEditorList.innerHTML = '';
+    (config.events && config.events.length ? config.events : ['']).forEach(function(line){
+      var parts = line.split('|').map(function(s){return s.trim();});
+      addEventRow(parts[0], parts[1], parts[2], parts[3]);
+    });
+    socialEditorList.innerHTML = '';
+    (config.socialLinks && config.socialLinks.length ? config.socialLinks : ['']).forEach(function(line){
+      var parts = line.split('|').map(function(s){return s.trim();});
+      addSocialRow(parts[0], parts[1]);
+    });
+    document.getElementById('cfgPrivacyUrl').value = config.privacyUrl || '';
+    document.getElementById('cfgTermsUrl').value = config.termsUrl || '';
+    document.getElementById('cfgCopyright').value = config.copyrightText || '';
+    document.getElementById('cfgRegOpen').checked = config.regOpen !== false;
+    document.getElementById('cfgRegMsg').value = config.regClosedMsg || '';
+    document.getElementById('cfgAnnounce').value = config.announcement || '';
+    document.getElementById('cfgAnnounceUrl').value = config.announcementUrl || '';
+    ['Team:team','Faq:faq','Leaderboard:leaderboard'].forEach(function(x){var k=x.split(':');document.getElementById('cfg'+k[0]).value=(config[k[1]]||[]).join('\n');});
+    document.getElementById('cfgLbNote').value = config.leaderboardNote || '';
+    document.getElementById('cfgMission').value = config.mission || '';
+    document.getElementById('cfgAbout1').value = config.about1 || '';
+    document.getElementById('cfgNewPass').value = '';
+    document.getElementById('pwFieldWrap').style.display = apiMode ? 'none' : '';
+    document.getElementById('statusNote').textContent = '';
+    backdrop.classList.add('open');
+  }
+
+  document.getElementById('gearBtn').addEventListener('click', async function(){
+    if(apiMode){
+      document.getElementById('pwTitle').textContent = 'Admin access';
+      document.getElementById('pwSub').textContent = 'Enter the admin password to edit this site.';
+      pwInput.value = ''; pwStatus.textContent = '';
+      pwBackdrop.classList.add('open');
+      pwInput.focus();
+      return;
+    }
+    var existing = await getStoredHash();
+    document.getElementById('pwTitle').textContent = existing ? 'Admin access' : 'Set admin password';
+    document.getElementById('pwSub').textContent = existing
+      ? 'Enter the admin password to edit this site.'
+      : 'No password set yet. Choose one now to protect editing.';
+    pwInput.value = ''; pwStatus.textContent = '';
+    pwBackdrop.classList.add('open');
+    pwInput.focus();
+  });
+  document.getElementById('pwCancel').addEventListener('click', function(){ pwBackdrop.classList.remove('open'); });
+  pwBackdrop.addEventListener('click', function(e){ if(e.target === pwBackdrop) pwBackdrop.classList.remove('open'); });
+
+  async function submitPassword(){
+    var val = pwInput.value;
+    if(!val){ pwStatus.textContent = 'Enter a password.'; return; }
+
+    if(apiMode){
+      try{
+        var res = await fetch('/api/config', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({password: val, verify: true})
+        });
+        if(res.ok){
+          pendingPassword = val;
+          pwBackdrop.classList.remove('open');
+          openSettings();
+        } else {
+          pwStatus.textContent = 'Incorrect password.';
+        }
+      }catch(e){ pwStatus.textContent = 'Could not reach the server — try again.'; }
+      return;
+    }
+
+    var existing = await getStoredHash();
+    var hash = await sha256(val);
+    if(!existing){
+      if(val.length < 4){ pwStatus.textContent = 'Use at least 4 characters.'; return; }
+      await setStoredHash(hash);
+      pwBackdrop.classList.remove('open');
+      openSettings();
+      return;
+    }
+    if(hash === existing){
+      pwBackdrop.classList.remove('open');
+      openSettings();
+    } else {
+      pwStatus.textContent = 'Incorrect password.';
+    }
+  }
+  document.getElementById('pwSubmit').addEventListener('click', submitPassword);
+  pwInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') submitPassword(); });
+
+  document.getElementById('cancelBtn').addEventListener('click', function(){
+    backdrop.classList.remove('open');
+  });
+  backdrop.addEventListener('click', function(e){ if(e.target === backdrop) backdrop.classList.remove('open'); });
+
+  document.getElementById('saveBtn').addEventListener('click', async function(){
+    var note = document.getElementById('statusNote');
+    function linesOf(id){return document.getElementById(id).value.split('\n').map(function(x){return x.trim();}).filter(Boolean);}
+    var lb = linesOf('cfgLeaderboard');
+    var lbChanged = JSON.stringify(lb) !== JSON.stringify(config.leaderboard || []);
+    var newDoc = {
+      formUrl: document.getElementById('cfgFormUrl').value.trim() || DEFAULTS.formUrl,
+      feedbackUrl: document.getElementById('cfgFeedbackUrl').value.trim() || DEFAULTS.feedbackUrl,
+      events: readEventRows(),
+      mission: document.getElementById('cfgMission').value.trim() || DEFAULTS.mission,
+      about1: document.getElementById('cfgAbout1').value.trim() || DEFAULTS.about1,
+      socialLinks: readSocialRows(),
+      privacyUrl: document.getElementById('cfgPrivacyUrl').value.trim() || DEFAULTS.privacyUrl,
+      termsUrl: document.getElementById('cfgTermsUrl').value.trim() || DEFAULTS.termsUrl,
+      copyrightText: document.getElementById('cfgCopyright').value.trim() || DEFAULTS.copyrightText,
+      regOpen: document.getElementById('cfgRegOpen').checked,
+      regClosedMsg: document.getElementById('cfgRegMsg').value.trim() || DEFAULTS.regClosedMsg,
+      announcement: document.getElementById('cfgAnnounce').value.trim(),
+      announcementUrl: document.getElementById('cfgAnnounceUrl').value.trim(),
+      team: linesOf('cfgTeam'), faq: linesOf('cfgFaq'), leaderboard: lb,
+      leaderboardNote: document.getElementById('cfgLbNote').value.trim(),
+      leaderboardUpdated: lbChanged ? new Date().toISOString() : (config.leaderboardUpdated || '')
+    };
+    var newPass = document.getElementById('cfgNewPass').value;
+    try{
+      var result = await saveSiteConfig(newDoc);
+      if(!result.ok){
+        note.textContent = result.authError
+          ? 'Session expired — close this and click the gear icon again.'
+          : 'Storage unavailable — changes not saved.';
+        return;
+      }
+      if(newPass && !apiMode){
+        if(newPass.length < 4){ note.textContent = 'New password needs at least 4 characters — other changes not saved.'; return; }
+        var newHash = await sha256(newPass);
+        await setStoredHash(newHash);
+      }
+      applyDoc(newDoc);
+      document.querySelector('#mission .glass-card p').textContent = newDoc.mission;
+      document.querySelector('#about .grid-2 .glass-card p').textContent = newDoc.about1;
+      note.textContent = result.shared ? 'Saved. Visible to everyone now.' : 'Saved in this browser only (no shared backend detected here — see README for making it permanent for all visitors).';
+      setTimeout(function(){ backdrop.classList.remove('open'); }, result.shared ? 700 : 2600);
+    }catch(err){
+      note.textContent = 'Could not save — please try again.';
+    }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- fade-in on scroll ---- */
+  var SEL='.section-head,.glass-card,.event-card,.team-card,#faq details,.d1-strip,.feedback-line,.sub-h,footer>*';
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  var n=0,raf=0;
+  function scan(){
+    if(reduce)return;
+    document.querySelectorAll(SEL).forEach(function(el){
+      if(el.dataset.rv)return;el.dataset.rv='1';
+      el.classList.add('reveal');el.style.transitionDelay=(n++%5)*70+'ms';
+      var r=el.getBoundingClientRect();
+      if(el.offsetParent&&r.top<innerHeight*.92&&r.bottom>0)el.classList.add('in');else io.observe(el);
+    });
+  }
+  scan();addEventListener('load',scan);
+  new MutationObserver(function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(scan);}).observe(document.body,{childList:true,subtree:true});
+
+  /* ---- page particles: drift, parallax with scroll, recolor with theme ---- */
+  var cv=document.getElementById('bgParticles'),cx=cv&&cv.getContext('2d'),W=0,H=0,P=[],cols=['#0e7fa8','#33b8c9'],mouse={x:-9999,y:-9999};
+  function readCols(){var cs=getComputedStyle(root);cols=[cs.getPropertyValue('--accent').trim()||cols[0],cs.getPropertyValue('--accent2').trim()||cols[1]];}
+  function build(){
+    var dpr=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cx.setTransform(dpr,0,0,dpr,0,0);
+    var cnt=Math.round(Math.min(95,Math.max(26,W*H/16000)));
+    while(P.length<cnt)P.push({x:Math.random(),y:Math.random(),r:1.4+Math.random()*3.2,d:.25+Math.random()*.95,s:.3+Math.random()*.7,ph:Math.random()*6.28,c:Math.random()<.6?0:1,a:.28+Math.random()*.4,ox:0,oy:0});
+    P.length=cnt;
+  }
+  function draw(t){
+    cx.clearRect(0,0,W,H);
+    var sy=reduce?0:scrollY,pos=[],i,j;
+    for(i=0;i<P.length;i++){var p=P[i];
+      var x=p.x*W+(reduce?0:Math.sin(t*.0004*p.s+p.ph)*16)+p.ox;
+      var y=(((p.y*H-sy*p.d*.45-(reduce?0:t*.008*p.s))%H)+H)%H+p.oy;
+      var dx=x-mouse.x,dy=y-mouse.y,dd=dx*dx+dy*dy;
+      if(dd<14400&&dd>1){var dist=Math.sqrt(dd),f=(1-dist/120)*1.6;p.ox+=dx/dist*f;p.oy+=dy/dist*f;}
+      p.ox*=.95;p.oy*=.95;pos.push(x,y);
+      cx.globalAlpha=p.a;cx.fillStyle=cols[p.c];cx.beginPath();cx.arc(x,y,p.r,0,6.283);cx.fill();
+    }
+    if(W>700){cx.lineWidth=1;cx.strokeStyle=cols[0];
+      for(i=0;i<P.length;i++)for(j=i+1;j<P.length;j++){
+        var ax=pos[2*i]-pos[2*j],ay=pos[2*i+1]-pos[2*j+1],d2=ax*ax+ay*ay;
+        if(d2<12100){cx.globalAlpha=(1-Math.sqrt(d2)/110)*.16;cx.beginPath();cx.moveTo(pos[2*i],pos[2*i+1]);cx.lineTo(pos[2*j],pos[2*j+1]);cx.stroke();}
+      }}
+    cx.globalAlpha=1;
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  if(cx){
+    readCols();build();draw(0);
+    new MutationObserver(function(){readCols();if(reduce)draw(0);}).observe(root,{attributes:true,attributeFilter:['data-theme']});
+    addEventListener('resize',function(){if(innerWidth!==W||Math.abs(innerHeight-H)>150){build();if(reduce)draw(0);}});
+    addEventListener('pointermove',function(e){if(e.pointerType==='mouse'){mouse.x=e.clientX;mouse.y=e.clientY;}});
+    document.addEventListener('mouseleave',function(){mouse.x=mouse.y=-9999;});
+  }
+
+  /* ---- custom cursor (mouse/laptop only) ---- */
+  if(!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var mk=function(c){var d=document.createElement('div');d.className=c;document.body.appendChild(d);return d;};
+    var dot=mk('cur-dot'),ring=mk('cur-ring'),mx=-100,my=-100,rx=-100,ry=-100;
+    root.classList.add('has-cursor');
+    addEventListener('mousemove',function(e){
+      mx=e.clientX;my=e.clientY;dot.style.opacity=ring.style.opacity=1;
+      dot.style.transform='translate3d('+mx+'px,'+my+'px,0)';
+      var t=e.target,txt=t.closest&&t.closest('input,textarea,select'),hov=t.closest&&t.closest('a,button,summary,label,[role=button]');
+      ring.classList.toggle('hov',!!hov&&!txt);ring.classList.toggle('txt',!!txt);
+    });
+    addEventListener('mousedown',function(){ring.classList.add('down');});
+    addEventListener('mouseup',function(){ring.classList.remove('down');});
+    addEventListener('click',function(e){var r=mk('cur-ripple');r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';setTimeout(function(){r.remove();},650);});
+    document.addEventListener('mouseleave',function(){dot.style.opacity=ring.style.opacity=0;});
+    (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';requestAnimationFrame(loop);})();
+  }
+})();
+</script>
+</body>
+</html>
