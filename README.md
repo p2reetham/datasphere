@@ -145,7 +145,7 @@ pages here are independent static files and won't be affected either way.
 
 Once redeployed: everyone who opens the live URL loads the shared
 `config.json` on page load. Clicking the gear icon anywhere now always asks
-for the same password (`preetham`, or whatever you set `ADMIN_PASSWORD` to).
+for the same password ( whatever you set `ADMIN_PASSWORD` to).
 A successful save commits the update straight to `config.json` on GitHub —
 so it's the same content and the same password on every device, no local
 per-browser state involved, and **no redeploy needed** for these fields.
