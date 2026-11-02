@@ -41,6 +41,8 @@ Supported extensions:
 - **Images**: `.jpg` `.jpeg` `.png` `.webp` `.gif` `.avif`
 - **Videos**: `.mp4` `.webm` `.mov` `.m4v`
 
+The gallery shows two slowly moving rows (one if you have fewer than 6 items). Photos are never cropped, they pause when you hover or touch, can be swiped or scrolled by hand, and a click opens the photo large with next/previous. Playing a video pauses the movement.
+
 Anything else in that folder (including `manifest.json` itself and dotfiles
 like `.DS_Store`) is ignored automatically.
 
@@ -184,3 +186,8 @@ text. Redeploy and it's permanent for everyone, no backend needed.
 - **Background particles** drift, move at different speeds as you scroll up/down, and take the colors of the selected theme (a few dodge the mouse on laptops).
 - **Custom cursor** (dot + ring, grows on links/buttons, ripple on click) only appears on devices with a mouse. Phones, tablets and anyone with "reduce motion" turned on don't get it, and particles stay still for them.
 To remove any effect, delete the matching part of the last `<script>` block in `index.html`.
+
+If a device has "reduce motion" switched on, particles and the gallery stay still and a small button offers to turn animations on (remembered in that browser).
+
+## Typography
+Playfair Display (hero, events), Cormorant Garamond (mission, register, FAQ, footer, legal titles), Marcellus (about, gallery), Bodoni Moda (team, leaderboard) and Jost (navigation, buttons, body text), all from Google Fonts.
